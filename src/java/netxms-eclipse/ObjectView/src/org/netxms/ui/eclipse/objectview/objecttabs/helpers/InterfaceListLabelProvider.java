@@ -112,9 +112,10 @@ public class InterfaceListLabelProvider extends LabelProvider implements ITableL
 			case InterfacesTab.COLUMN_TYPE:
             String typeName = iface.getIfTypeName();
 				return (typeName != null) ? String.format("%d (%s)", iface.getIfType(), typeName) : Integer.toString(iface.getIfType()); //$NON-NLS-1$
-			case InterfacesTab.COLUMN_MAC_ADDRESS:
-			   String vendor = session.getVendorByMac(iface.getMacAddress(), new ViewerElementUpdater(viewer, element));
-				return vendor != null && !vendor.isEmpty() ? String.format("%s (%s)", iface.getMacAddress().toString(), vendor) : iface.getMacAddress().toString();
+         case InterfacesTab.COLUMN_VENDOR:
+            return session.getVendorByMac(iface.getMacAddress(), new ViewerElementUpdater(viewer, element));
+         case InterfacesTab.COLUMN_MAC_ADDRESS:
+            return iface.getMacAddress().toString();
 			case InterfacesTab.COLUMN_IP_ADDRESS:
 				return iface.getIpAddressListAsString();
          case InterfacesTab.COLUMN_OSPF_AREA:

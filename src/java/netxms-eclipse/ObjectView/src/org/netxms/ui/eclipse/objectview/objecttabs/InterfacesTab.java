@@ -66,22 +66,23 @@ public class InterfacesTab extends NodeComponentViewerTab
    public static final int COLUMN_SPEED = 7;
    public static final int COLUMN_DESCRIPTION = 8;
    public static final int COLUMN_MAC_ADDRESS = 9;
-   public static final int COLUMN_IP_ADDRESS = 10;
-   public static final int COLUMN_VLAN = 11;
-   public static final int COLUMN_OSPF_AREA = 12;
-   public static final int COLUMN_OSPF_TYPE = 13;
-   public static final int COLUMN_OSPF_STATE = 14;
-   public static final int COLUMN_PEER_NODE = 15;
-   public static final int COLUMN_PEER_INTERFACE = 16;
-   public static final int COLUMN_PEER_MAC_ADDRESS = 17;
-   public static final int COLUMN_PEER_IP_ADDRESS = 18;
-   public static final int COLUMN_PEER_PROTOCOL = 19;
-   public static final int COLUMN_ADMIN_STATE = 20;
-   public static final int COLUMN_OPER_STATE = 21;
-   public static final int COLUMN_EXPECTED_STATE = 22;
-   public static final int COLUMN_STATUS = 23;
-   public static final int COLUMN_8021X_PAE_STATE = 24;
-   public static final int COLUMN_8021X_BACKEND_STATE = 25;
+   public static final int COLUMN_VENDOR = 10;
+   public static final int COLUMN_IP_ADDRESS = 11;
+   public static final int COLUMN_VLAN = 12;
+   public static final int COLUMN_OSPF_AREA = 13;
+   public static final int COLUMN_OSPF_TYPE = 14;
+   public static final int COLUMN_OSPF_STATE = 15;
+   public static final int COLUMN_PEER_NODE = 16;
+   public static final int COLUMN_PEER_INTERFACE = 17;
+   public static final int COLUMN_PEER_MAC_ADDRESS = 18;
+   public static final int COLUMN_PEER_IP_ADDRESS = 19;
+   public static final int COLUMN_PEER_PROTOCOL = 20;
+   public static final int COLUMN_ADMIN_STATE = 21;
+   public static final int COLUMN_OPER_STATE = 22;
+   public static final int COLUMN_EXPECTED_STATE = 23;
+   public static final int COLUMN_STATUS = 24;
+   public static final int COLUMN_8021X_PAE_STATE = 25;
+   public static final int COLUMN_8021X_BACKEND_STATE = 26;
 
    private InterfaceListLabelProvider labelProvider;
    private Action actionCopyMacAddressToClipboard;
@@ -256,6 +257,7 @@ public class InterfacesTab extends NodeComponentViewerTab
          Messages.get().InterfacesTab_Speed,
          Messages.get().InterfacesTab_ColDescription, 
          Messages.get().InterfacesTab_ColMacAddr,
+         "NIC Vendor",
          Messages.get().InterfacesTab_ColIpAddr, 
          "VLAN",
          "OSPF area",
@@ -273,7 +275,7 @@ public class InterfacesTab extends NodeComponentViewerTab
          Messages.get().InterfacesTab_Col8021xPAE, 
          Messages.get().InterfacesTab_Col8021xBackend 
       };
-      final int[] widths = { 60, 150, 150, 150, 70, 100, 70, 90, 150, 100, 90, 80, 80, 80, 80, 150, 150, 100, 90, 80, 80, 80, 80, 80, 80, 80 };
+      final int[] widths = { 60, 150, 150, 150, 70, 100, 70, 90, 150, 100, 90, 200, 80, 80, 80, 80, 150, 150, 100, 90, 80, 80, 80, 80, 80, 80, 80 };
       viewer = new SortableTableViewer(mainArea, names, widths, COLUMN_NAME, SWT.UP, SWT.FULL_SELECTION | SWT.MULTI);
       labelProvider = new InterfaceListLabelProvider(viewer);
       viewer.setLabelProvider(labelProvider);

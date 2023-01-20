@@ -101,9 +101,10 @@ public class InterfaceListLabelProvider extends LabelProvider implements ITableL
 				return Integer.toString(iface.getIfIndex());
          case InterfacesView.COLUMN_IP_ADDRESS:
             return iface.getIpAddressListAsString();
+         case InterfacesView.COLUMN_VENDOR:
+            return session.getVendorByMac(iface.getMacAddress(), new ViewerElementUpdater(viewer, element));
          case InterfacesView.COLUMN_MAC_ADDRESS:
-            String vendor = session.getVendorByMac(iface.getMacAddress(), new ViewerElementUpdater(viewer, element));
-            return vendor != null && !vendor.isEmpty() ? String.format("%s (%s)", iface.getMacAddress().toString(), vendor) : iface.getMacAddress().toString();
+            return iface.getMacAddress().toString();
          case InterfacesView.COLUMN_MTU:
             return Integer.toString(iface.getMtu());
          case InterfacesView.COLUMN_NAME:

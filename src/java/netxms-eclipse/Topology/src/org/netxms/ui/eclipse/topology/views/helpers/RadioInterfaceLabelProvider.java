@@ -74,8 +74,9 @@ public class RadioInterfaceLabelProvider extends LabelProvider implements ITable
 			case RadioInterfaces.COLUMN_INDEX:
 				return Integer.toString(rif.getIndex());
 			case RadioInterfaces.COLUMN_MAC_ADDR:
-            String vendor = session.getVendorByMac(rif.getMacAddress(), new ViewerElementUpdater(viewer, element));
-            return vendor != null && !vendor.isEmpty() ? String.format("%s (%s)",rif.getMacAddress().toString(), vendor) : rif.getMacAddress().toString();
+            return rif.getMacAddress().toString();
+         case RadioInterfaces.COLUMN_NIC_VENDOR:
+            return session.getVendorByMac(rif.getMacAddress(), new ViewerElementUpdater(viewer, element));
 			case RadioInterfaces.COLUMN_NAME:
 				return rif.getName();
 			case RadioInterfaces.COLUMN_TX_POWER_DBM:

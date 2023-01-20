@@ -84,6 +84,9 @@ public class InterfaceListComparator extends ViewerComparator
          case InterfacesTab.COLUMN_MAC_ADDRESS:
             result = iface1.getMacAddress().compareTo(iface2.getMacAddress());
             break;
+         case InterfacesTab.COLUMN_VENDOR:
+            result = getVendor(iface1).compareTo(getVendor(iface2));
+            break;
          case InterfacesTab.COLUMN_MTU:
             result = iface1.getMtu() - iface2.getMtu();
             break;
@@ -216,5 +219,17 @@ public class InterfaceListComparator extends ViewerComparator
    {
       Interface peer = (Interface)session.findObjectById(iface.getPeerInterfaceId(), Interface.class);
       return (peer != null) ? peer.getObjectName() : "";
+   }
+
+   /**
+    * Get NIC vendor
+    *
+    * @param iface interface
+    * @return NIC vendor
+    */
+   private String getVendor(Interface iface)
+   {
+      String vendor = session.getVendorByMac(iface.getMacAddress(), null);
+      return (vendor != null) ? vendor : "";
    }
 }

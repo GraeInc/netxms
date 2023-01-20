@@ -67,7 +67,8 @@ public class InterfaceListFilter extends NodeSubObjectFilter
             matchExpState(iface) ||
             matchStatus(iface) ||
             matchDot1xPaeState(iface) ||
-            matchDot1xBackendState(iface);
+            matchDot1xBackendState(iface) ||
+            matchMaVendor(iface);
    }
 
    /**
@@ -338,6 +339,16 @@ public class InterfaceListFilter extends NodeSubObjectFilter
       if (interf.getDot1xBackendStateAsText().toLowerCase().contains(filterString))
          return true;
       return false;
+   }
+
+   /**
+    * @param iface
+    * @return
+    */
+   private boolean matchMaVendor(Interface iface)
+   {
+      String vendor = session.getVendorByMac(iface.getMacAddress(), null);
+      return (vendor != null) && vendor.toLowerCase().contains(filterString);
    }
 
    /**
