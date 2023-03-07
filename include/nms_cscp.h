@@ -691,6 +691,12 @@ typedef struct
 #define CMD_UPDATE_MAINTENANCE_JOURNAL    0x01C6
 #define CMD_GET_SSH_CREDENTIALS           0x01C7
 #define CMD_UPDATE_SSH_CREDENTIALS        0x01C8
+#define CMD_GET_ASSET_MGMT_ATTRIBUTE      0x01C9
+#define CMD_CREATE_ASSET_MGMT_ATTRIBUTE   0x01CA
+#define CMD_UPDATE_ASSET_MGMT_ATTRIBUTE   0x01CB
+#define CMD_DELETE_ASSET_MGMT_ATTRIBUTE   0x01CC
+#define CMD_UPDATE_ASSET_INSTANCE         0x01CD
+#define CMD_DELETE_ASSET_INSTANCE         0x01CE
 
 #define CMD_RS_LIST_REPORTS               0x1100
 #define CMD_RS_GET_REPORT_DEFINITION      0x1101
@@ -1515,6 +1521,16 @@ typedef struct
 #define VID_VPN_CONNECTOR_COUNT     ((uint32_t)810)
 #define VID_MONITOR_ID              ((uint32_t)811)
 #define VID_NUM_TIME_FRAMES         ((uint32_t)812)
+#define VID_AM_COUNT                ((uint32_t)813)
+#define VID_DATA_TYPE               ((uint32_t)814)
+#define VID_IS_MANDATORY            ((uint32_t)815)
+#define VID_IS_UNIQUE               ((uint32_t)816)
+#define VID_RANGE_MIN               ((uint32_t)817)
+#define VID_RANGE_MAX               ((uint32_t)818)
+#define VID_SYSTEM_TYPE             ((uint32_t)819)
+#define VID_ENUM_COUNT              ((uint32_t)820)
+#define VID_DISPLAY_NAME            ((uint32_t)821)
+
 
 // Base variabe for single threshold in message
 #define VID_THRESHOLD_BASE          ((UINT32)0x00800000)
@@ -1580,6 +1596,9 @@ typedef struct
 
 // Base value for ICMP target list
 #define VID_ICMP_TARGET_LIST_BASE   ((uint32_t)0x75000000)
+
+// Base value for asset managementn attribute instance list
+#define VID_AM_DATA_BASE            ((uint32_t)0x76000000)
 
 // IP address list base
 #define VID_IP_ADDRESS_LIST_BASE    ((uint32_t)0x7F000000)
@@ -1774,6 +1793,10 @@ typedef struct
 #define VID_CHECK_LIST_BASE         ((uint32_t)0x10000000)
 
 #define VID_TICKET_LIST_BASE        ((uint32_t)0x10000000)
+
+#define VID_AM_LIST_BASE            ((uint32_t)0x10000000)
+
+#define VID_AM_ENUM_MAP_BASE        ((uint32_t)0x10000000)
 
 #ifdef __cplusplus
 
